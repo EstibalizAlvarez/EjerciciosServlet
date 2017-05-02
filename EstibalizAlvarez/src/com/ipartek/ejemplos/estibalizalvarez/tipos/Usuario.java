@@ -3,6 +3,7 @@ package com.ipartek.ejemplos.estibalizalvarez.tipos;
 public class Usuario {
 	private String nombre;
 	private String pass;
+	private String errores;
 
 	// TO STRING;
 	@Override
@@ -14,6 +15,14 @@ public class Usuario {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getErrores() {
+		return errores;
+	}
+
+	public void setErrores(String errores) {
+		this.errores = errores;
 	}
 
 	public void setNombre(String nombre) {
@@ -33,6 +42,11 @@ public class Usuario {
 		super();
 		this.nombre = nombre;
 		this.pass = pass;
+	}
+
+	// constructor vacio.
+	public Usuario() {
+		super();
 	}
 
 	@Override
