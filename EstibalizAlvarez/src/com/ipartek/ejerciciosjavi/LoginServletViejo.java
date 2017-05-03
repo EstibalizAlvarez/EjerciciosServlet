@@ -2,7 +2,6 @@ package com.ipartek.ejerciciosjavi;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -11,21 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ipartek.ejemplos.javierlete.dal.UsuariosDAL;
-import com.ipartek.ejemplos.javierlete.dal.UsuariosDALFijo;
-import com.ipartek.ejemplos.javierlete.tipos.Usuario;
+import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDAL;
+import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDALFijo;
+import com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario;
 
 @WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+public class LoginServletViejo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/* package */static final String RUTA = "/WEB-INF/vistas/";
+	private static final String RUTA = "/WEB-INF/vistas/";
 	private static final String RUTA_PRINCIPAL = RUTA + "principal.jsp";
 	private static final String RUTA_LOGIN = RUTA + "login.jsp";
 
-	public static final int TIEMPO_INACTIVIDAD = 30 * 60;
-
-	/* package */static final int MINIMO_CARACTERES = 4;
+	private static final int TIEMPO_INACTIVIDAD = 30 * 60;// minutos.
+	private static final int MINIMO_CARACTERES = 4;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -44,17 +42,11 @@ public class LoginServlet extends HttpServlet {
 		usuario.setPass(pass);
 
 		// Llamada a lógica de negocio
-		ServletContext application = request.getServletContext();
-
-		UsuariosDAL usuariosDAL = (UsuariosDAL) application.getAttribute(AltaServlet.USUARIOS_DAL);
-
-		if (usuariosDAL == null) {
-			usuariosDAL = new UsuariosDALFijo();
-		}
+		UsuariosDAL usuarioDAL = new UsuariosDALFijo();
 
 		// Sólo para crear una base de datos falsa con el
 		// contenido de un usuario "javi", "lete"
-		// usuarioDAL.alta(new Usuario("javi", "lete"));
+		usuarioDAL.alta(new Usuario("pupi", "trucios"));
 
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(TIEMPO_INACTIVIDAD);
@@ -71,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 		// }
 
 		// ESTADOS
-		boolean esValido = usuariosDAL.validar(usuario);
+		boolean esValido = usuarioDAL.validar(usuario);
 
 		boolean sinParametros = usuario.getNombre() == null;
 
@@ -80,9 +72,9 @@ public class LoginServlet extends HttpServlet {
 		boolean quiereSalir = "logout".equals(opcion);
 
 		boolean nombreValido = usuario.getNombre() != null && usuario.getNombre().length() >= MINIMO_CARACTERES;
-		boolean passValido = !(usuario.getPass() == null || usuario.getPass().length() < MINIMO_CARACTERES);
+		boolean passValido = !(usuario.getPass() == null || usuario.getPass().length() >= MINIMO_CARACTERES);// que la contraseña NO no es valida (es valida).
 
-		// Redirigir a una nueva vista
+		// Redirigir a una nueva vista:
 		if (quiereSalir) {
 			session.invalidate();
 			request.getRequestDispatcher(RUTA_LOGIN).forward(request, response);
@@ -90,8 +82,8 @@ public class LoginServlet extends HttpServlet {
 			request.getRequestDispatcher(RUTA_PRINCIPAL).forward(request, response);
 		} else if (sinParametros) {
 			request.getRequestDispatcher(RUTA_LOGIN).forward(request, response);
-		} else if (!nombreValido || !passValido) {
-			usuario.setErrores("El nombre y la pass deben tener como mínimo " + MINIMO_CARACTERES + " caracteres y son ambos requeridos");
+		} else if (!nombreValido || !passValido) {// si el usuario o pass es
+			usuario.setErrores("El nombre y la pass debe tener como minimo " + MINIMO_CARACTERES + " caracteres y son ambos requeridos.");
 			request.setAttribute("usuario", usuario);
 			request.getRequestDispatcher(RUTA_LOGIN).forward(request, response);
 		} else if (esValido) {
@@ -102,6 +94,6 @@ public class LoginServlet extends HttpServlet {
 			usuario.setErrores("El usuario y contraseña introducidos no son válidos");
 			request.setAttribute("usuario", usuario);
 			request.getRequestDispatcher(RUTA_LOGIN).forward(request, response);
-		}
-	}
-}
+		}// else final.
+	}// dopost
+}// class

@@ -28,7 +28,7 @@ alert('<%= new Date() %>');
 	<h1><%= new Date() %></h1>
 	
 	<% for(int i = 1; i <= 6; i++) { %>
-		<h<%=i %>>Prueba <%=i %></h<%=i %>>
+		<h<%=i %>> Prueba <%=i %> </h<%=i %>>
 	<% } %>
 </body>
 </html>
