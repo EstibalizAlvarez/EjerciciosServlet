@@ -7,6 +7,6 @@
 <title>Error</title>
 </head>
 <body>
-	<h1>Error</h1>
+	<h1>Te has equivocado.</h1>
 </body>
 </html>

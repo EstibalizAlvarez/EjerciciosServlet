@@ -9,8 +9,9 @@
 <!-- <body> -->
 <%@ include file="includes/cabecera.jsp" %>
 	<h1>Principal</h1>
-	<jsp:useBean id="usuario" scope="sesion" class="com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario"/><!--de la clase usuario te coge el usuario.-->
-	<h2>Bienvenido ${usuario.nombre}</h2> <!-- para que te salga el nombre de usuario. -->
+	<jsp:useBean id="usuario" scope="session" class="com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario"/> <!--de la clase usuario te coge el usuario.-->
+	<h2>Bienvenido ${usuario.nombre} <a href="login?opcion=logout">Logout</a></h2> <!-- para que te salga el nombre de usuario. -->
+	<%= new java.util.Date()%><!-- para que te aparezca la fecha. -->
 <!-- </body> -->
 <!-- </html> -->
 <%@ include file="includes/pie.jsp" %>

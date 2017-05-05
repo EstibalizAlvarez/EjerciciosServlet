@@ -14,7 +14,7 @@ import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDAL;
 import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDALFijo;
 import com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario;
 
-@WebServlet("/login")
+@WebServlet("/loginviejo")
 public class LoginServletViejo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

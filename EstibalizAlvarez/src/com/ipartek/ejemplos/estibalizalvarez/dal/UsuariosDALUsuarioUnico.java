@@ -1,8 +1,8 @@
-package com.ipartek.ejerciciosjavi;
+package com.ipartek.ejemplos.estibalizalvarez.dal;
 
-import com.ipartek.ejemplos.javierlete.tipos.Usuario;
+import com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario;
 
-public class UsuariosDALFijo implements UsuariosDAL {
+public class UsuariosDALUsuarioUnico implements UsuariosDAL {
 
 	private Usuario usuario;
 

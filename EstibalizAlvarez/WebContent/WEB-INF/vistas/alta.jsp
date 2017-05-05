@@ -1,11 +1,12 @@
 <%@ include file="includes/cabecera.jsp" %>
 
 	<jsp:useBean id="usuario" scope="request"
-		class="com.ipartek.ejemplos.javierlete.tipos.Usuario" />
+		class="com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario" />
 
 	<form action="alta" method="post">
+		<h2>ALTA DE USUARIO:</h2>
 		<fieldset>
-			<label for="nombre">Nombre</label> <input id="nombre" name="nombre"
+			<label for="nombre">Usuario</label> <input id="nombre" name="nombre"
 			  required="required" minlength="4" value="${usuario.nombre}" />
 		</fieldset>
 		<fieldset>
@@ -13,7 +14,7 @@
 				name="pass" />
 		</fieldset>
 		<fieldset>
-			<label for="pass2">Contraseña otra vez</label> <input type="password" id="pass2"
+			<label for="pass2">Repite contraseña</label> <input type="password" id="pass2"
 				name="pass2" />
 		</fieldset>
 		<fieldset>
