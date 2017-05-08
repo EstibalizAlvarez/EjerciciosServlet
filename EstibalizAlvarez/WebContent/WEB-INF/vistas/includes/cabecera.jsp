@@ -13,8 +13,8 @@
 		</header> 
 		<nav>
 		<ul>
-			<li><a href="login">Login</a></li>
-			<li><a href="alta">Alta</a></li>
-			<li><a href="login?opcion=logout">Salir</a></li>
+			<li><a href="login">Login Usuario</a></li>
+			<li><a href="alta">Alta Usuario</a></li>
+			<li><a href="login?opcion=logout">Cerrar Sesión</a></li>
 		</ul>
 	</nav>

@@ -49,6 +49,7 @@ public class Usuario {
 		super();
 	}
 
+	// HASCODE Y EQUALS:
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -58,7 +59,6 @@ public class Usuario {
 		return result;
 	}
 
-	// HASCODE Y EQUALS:
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
