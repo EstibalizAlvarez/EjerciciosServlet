@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDAL;
-import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDALFijo;
+import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDALUsuarioUnico;
 import com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario;
 
 @WebServlet(name = "Saludo", urlPatterns = { "/hola" })
@@ -37,7 +37,7 @@ public class HolaMundo extends HttpServlet {
 		String pass = request.getParameter("pass");
 
 		Usuario usuario = new Usuario(nombre, pass);// creas un nuevo objeto.
-		UsuariosDAL usuariosDal = new UsuariosDALFijo();//
+		UsuariosDAL usuariosDal = new UsuariosDALUsuarioUnico();//
 
 		usuariosDal.alta(new Usuario("Estibaliz", "pepe"));
 
