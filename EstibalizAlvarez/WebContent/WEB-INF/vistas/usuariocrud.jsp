@@ -1,6 +1,6 @@
 <%@ include file="includes/cabecera.jsp"%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>//
 
 <h2>Mantenimiento de usuarios</h2>
 
@@ -13,19 +13,19 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${requestScope.usuarios}" var="usuario">
+		<c:forEach items="${requestScope.usuarios}" var="usuario"> <!-- conjutno de usuarios cada uno que saques uno se llama usuario, la acaba de crear. -->
 			<tr>
 				<td>
-					<a href="?op=modificar&id=${usuario.nombre}">Modificar</a>
-					<a href="?op=borrar&id=${usuario.nombre}">Borrar</a>
+					<a href="?op=modificar&id=${usuario.nombre}">Modificar</a><!--  -->
+					<a href="?op=borrar&id=${usuario.nombre}">Borrar</a><!--  -->
 				</td>
-				<td>${usuario.nombre}</td>
-				<td>${usuario.pass}</td>
+				<td>${usuario.nombre}</td><!--  -->
+				<td>${usuario.pass}</td><!--  -->
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
-<a href="?op=alta">Alta</a>
+<a href="?op=alta">Alta</a> <!--crear el boton de alta y te va a la pagina de alta.  -->
 
 <%@ include file="includes/pie.jsp"%>

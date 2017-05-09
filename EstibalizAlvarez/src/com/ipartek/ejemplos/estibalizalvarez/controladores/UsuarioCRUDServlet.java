@@ -27,15 +27,16 @@ public class UsuarioCRUDServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext application = request.getServletContext();
-		UsuariosDAL dal = (UsuariosDAL) application.getAttribute("dal");
 
-		if (dal == null) {
-			dal = DALFactory.getUsuariosDAL();
+		UsuariosDAL dal = (UsuariosDAL) application.getAttribute("dal");// dal primero se le llama al conjunto de Usuarios dal.el conjunto de usuarios guardame un usuario de la clase UsuariosDal sino lo meteria en algo global.
 
-			dal.alta(new Usuario("usuario1", "pass1"));
-			dal.alta(new Usuario("usuario2", "pass2"));
+		if (dal == null) {//
+			dal = DALFactory.getUsuariosDAL();//
 
-			application.setAttribute("dal", dal);
+			dal.alta(new Usuario("usuario1", "pass1"));//
+			dal.alta(new Usuario("usuario2", "pass2"));//
+
+			application.setAttribute("dal", dal);//
 		}
 
 		String op = request.getParameter("op");
@@ -44,7 +45,7 @@ public class UsuarioCRUDServlet extends HttpServlet {
 
 			Usuario[] usuarios = dal.buscarTodosLosUsuarios();
 
-			request.setAttribute("usuarios", usuarios);
+			request.setAttribute("usuarios", usuarios);// "usuarios" es el que va en el requestsscope de la jsp y usuarios es el que se a creado en la fila anterior
 
 			request.getRequestDispatcher(RUTA_LISTADO).forward(request, response);
 		} else {
