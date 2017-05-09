@@ -7,4 +7,13 @@ public interface UsuariosDAL {
 
 	public boolean validar(Usuario usuario);// para validar un usuario existente.
 
+	public void modificar(Usuario usuario);
+
+	// lo añadido:
+	public void borrar(Usuario usuario);
+
+	public Usuario buscarPorId(String id);
+
+	public Usuario[] buscarTodosLosUsuarios();
+
 }
