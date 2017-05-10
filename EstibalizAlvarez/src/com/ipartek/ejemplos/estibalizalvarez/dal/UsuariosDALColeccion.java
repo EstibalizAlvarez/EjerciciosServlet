@@ -11,10 +11,10 @@ public class UsuariosDALColeccion implements UsuariosDAL {// TE COLOCAS EN USUAR
 
 	@Override
 	public void alta(Usuario usuario) {
-		if (usuarios.containsKey(usuario.getNombre()))
-			throw new UsuarioYaExistenteDALException("Ya existe el usuario " + usuario.getNombre());
+		if (usuarios.containsKey(usuario.getNombre()))// si el usuario que me ha dado ya exite
+			throw new UsuarioYaExistenteDALException("Ya existe el usuario " + usuario.getNombre());// te sale este excepcion.
 
-		usuarios.put(usuario.getNombre(), usuario);// para el usuario que me has pasado he cogido el get nombre que es la clave y te doy todo los datos.
+		usuarios.put(usuario.getNombre(), usuario);// Indice: para el usuario que me has pasado he cogido el get nombre que es la clave y te doy todo los datos.
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class UsuariosDALColeccion implements UsuariosDAL {// TE COLOCAS EN USUAR
 		if (!usuarios.containsKey(usuario.getNombre()))
 			throw new DALException("Intento de modificar usuario no existente " + usuario);
 
-		usuarios.put(usuario.getNombre(), usuario);
+		usuarios.put(usuario.getNombre(), usuario);//
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class UsuariosDALColeccion implements UsuariosDAL {// TE COLOCAS EN USUAR
 
 		return usuarios.values().toArray(new Usuario[usuarios.size()]);// coge todos los usuarios (values)y los valores los mete en un array.
 		// usuarios.size: te dice cuantos usuarios hay y te los mete en un array de ese tamaño.
-
+		// te va al indice "usuarios"y te los mete en un array.
 	}
 
 }

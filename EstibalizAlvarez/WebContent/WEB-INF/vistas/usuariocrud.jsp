@@ -19,8 +19,8 @@
 					<a href="?op=modificar&id=${usuario.nombre}">Modificar</a><!--para preguntar el nombre  -->
 					<a href="?op=borrar&id=${usuario.nombre}">Borrar</a><!--  -->
 				</td>
-				<td>${usuario.nombre}</td><!-- para mostrar el nombre de usuario -->
-				<td>${usuario.pass}</td><!--para mostrar pass de usuario  -->
+				<td>${usuario.nombre}</td><!-- le pregunta a usuarios el nombre de usuario -->
+				<td>${usuario.pass}</td><!--le pregunta a usuarios el pass de usuario  -->
 			</tr>
 		</c:forEach>
 	</tbody>

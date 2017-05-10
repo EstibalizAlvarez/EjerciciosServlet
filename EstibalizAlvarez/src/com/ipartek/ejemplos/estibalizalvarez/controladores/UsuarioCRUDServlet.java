@@ -47,7 +47,7 @@ public class UsuarioCRUDServlet extends HttpServlet {
 
 			request.setAttribute("usuarios", usuarios);// "usuarios" es el que va en el requestscope de la jsp y usuarios es el que se a creado en la fila anterior
 			//
-			request.getRequestDispatcher(RUTA_LISTADO).forward(request, response);
+			request.getRequestDispatcher(RUTA_LISTADO).forward(request, response);// te manda a la pagina usuariocrud.jsp.
 		} else {
 			String id = request.getParameter("id");
 
