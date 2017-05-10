@@ -28,25 +28,25 @@ public class UsuarioCRUDServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext application = request.getServletContext();
 
-		UsuariosDAL dal = (UsuariosDAL) application.getAttribute("dal");// dal primero se le llama al conjunto de Usuarios dal.el conjunto de usuarios guardame un usuario de la clase UsuariosDal sino lo meteria en algo global.
+		UsuariosDAL dal = (UsuariosDAL) application.getAttribute("dal");// dal primero se le llama al conjunto de UsuariosDal.el conjunto de usuarios guardame un usuario de la clase UsuariosDal, sino lo meteria en algo global.
 
-		if (dal == null) {//
+		if (dal == null) {// si los datos introducidos al principio son nulos (vacios).
 			dal = DALFactory.getUsuariosDAL();//
 
-			dal.alta(new Usuario("usuario1", "pass1"));//
+			dal.alta(new Usuario("usuario1", "pass1"));// dar de alta a un usuario. con el nombre "usuario1" y contraseña "pass1"
 			dal.alta(new Usuario("usuario2", "pass2"));//
 
-			application.setAttribute("dal", dal);//
+			application.setAttribute("dal", dal);// tarjeta visita. siemptre al mismo.
 		}
 
-		String op = request.getParameter("op");
+		String op = request.getParameter("op");// creas la variable op de tipo String. GetParameter: captura el dato que va en el "op",que se envia en el request.
 
 		if (op == null) {
 
-			Usuario[] usuarios = dal.buscarTodosLosUsuarios();
+			Usuario[] usuarios = dal.buscarTodosLosUsuarios();// crea un array de la clase Usuario llamado usuarios.
 
-			request.setAttribute("usuarios", usuarios);// "usuarios" es el que va en el requestsscope de la jsp y usuarios es el que se a creado en la fila anterior
-
+			request.setAttribute("usuarios", usuarios);// "usuarios" es el que va en el requestscope de la jsp y usuarios es el que se a creado en la fila anterior
+			//
 			request.getRequestDispatcher(RUTA_LISTADO).forward(request, response);
 		} else {
 			String id = request.getParameter("id");

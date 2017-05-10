@@ -14,13 +14,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${requestScope.usuarios}" var="usuario"> <!--  -->
+		<c:forEach items="${requestScope.}" var="articulo"> <!--cada producto que saques le llama articulo  -->
 			<!-- <tr>
 				<td>
 					<a href="?op=modificar&id=${conjunto.nombre}">Modificar</a>
 					<a href="?op=borrar&id=${conjunto.nombre}">Borrar</a>
 				</td>
-				<td>${conjunto.nombre}</td>
+				<td>${conjunto.nombre}</td> 
 				<td>${conjunto.pass}</td>
 			</tr> -->
 		</c:forEach>

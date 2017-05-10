@@ -16,11 +16,11 @@
 		<c:forEach items="${requestScope.usuarios}" var="usuario"> <!-- conjutno de usuarios cada uno que saques uno se llama usuario, la acaba de crear. -->
 			<tr>
 				<td>
-					<a href="?op=modificar&id=${usuario.nombre}">Modificar</a><!--  -->
+					<a href="?op=modificar&id=${usuario.nombre}">Modificar</a><!--para preguntar el nombre  -->
 					<a href="?op=borrar&id=${usuario.nombre}">Borrar</a><!--  -->
 				</td>
-				<td>${usuario.nombre}</td><!--  -->
-				<td>${usuario.pass}</td><!--  -->
+				<td>${usuario.nombre}</td><!-- para mostrar el nombre de usuario -->
+				<td>${usuario.pass}</td><!--para mostrar pass de usuario  -->
 			</tr>
 		</c:forEach>
 	</tbody>
