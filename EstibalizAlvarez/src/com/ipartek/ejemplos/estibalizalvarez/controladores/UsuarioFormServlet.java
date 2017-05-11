@@ -15,6 +15,7 @@ import com.ipartek.ejemplos.estibalizalvarez.dal.UsuariosDAL;
 import com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario;
 
 @WebServlet("/usuarioform")
+//
 public class UsuarioFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,7 +52,7 @@ public class UsuarioFormServlet extends HttpServlet {
 
 		switch (op) {
 		case "alta":
-			if (pass.equals(pass2)) {
+			if (pass.equals(pass2)) {// equals compara dos elementos(objetos, string....)
 				dal.alta(usuario);
 				rutaListado.forward(request, response);
 			} else {
