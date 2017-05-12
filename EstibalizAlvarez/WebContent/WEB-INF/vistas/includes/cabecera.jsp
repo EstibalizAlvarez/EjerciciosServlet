@@ -1,20 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%><!-- para que codifique bien la jsp. -->
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <meta charset="UTF-8"> -->
+<meta charset="UTF-8" />
+<title>Ejemplo MVC</title>
 <link rel="stylesheet" href="css/estilos.css" />
-<title></title>
+<script src="js/funciones.js"></script>
 </head>
 <body>
-		<header>
-			<h1>EJEMPLO DE MCV</h1>
-		</header> 
-		<nav>
+	<header>
+		<h1>Ejemplo MVC</h1>
+		<p>Ejemplos de uso de MVC con diferentes técnicas</p>
+	</header>
+	<nav>
 		<ul>
-			<li><a href="login">Login Usuario</a></li>
-			<li><a href="alta">Alta Usuario</a></li>
-			<li><a href="login?opcion=logout">Cerrar Sesión</a></li>
+			<li><a href="login">Login</a></li>
+			<li><a href="usuarioform?op=alta">Alta</a></li>
+			<li><a href="login?opcion=logout">Salir</a></li>
+			<li><a href="usuariocrud">Mantenimiento usuarios</a></li>
 		</ul>
 	</nav>
