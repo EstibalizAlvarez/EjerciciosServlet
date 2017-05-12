@@ -3,10 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-	<h2>Formulario de usuarios</h2>
+	<h1>Formulario de usuarios:</h1>
 	
-	<jsp:useBean id="usuario" scope="request"
-		class="com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario" />
+	<jsp:useBean id="usuario" scope="request" class="com.ipartek.ejemplos.estibalizalvarez.tipos.Usuario" />
 
 	<form action="usuarioform" method="post">
 		<fieldset>
