@@ -10,6 +10,8 @@ public interface ProductosDal {// aqui indicas los metodos.
 
 	public void baja(Productos1 conjunto);// para borrar un producto existente.
 
-	public Productos1[] buscarId();// para buscar un producto existente por id.
+	public Productos1 buscarPorId(String id);
+
+	public Productos1[] buscarTodos();// para buscar un producto existente por id.
 
 }// interface

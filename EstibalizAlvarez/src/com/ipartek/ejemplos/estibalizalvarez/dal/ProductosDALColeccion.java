@@ -32,7 +32,13 @@ public class ProductosDALColeccion implements ProductosDal {// DalColeccion esta
 	}
 
 	@Override
-	public Productos1[] buscarId() {
+	public Productos1 buscarPorId(String id) {
+
+		return Productos1.get(id);
+	}
+
+	@Override
+	public Productos1[] buscarTodos() {
 		// que todos los productos los meta en un array:
 		return productosColeccion.values().toArray(new Productos1[productosColeccion.size()]);// y te mide lo que ocupa procutosColeccion.
 

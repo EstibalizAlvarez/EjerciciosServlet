@@ -16,6 +16,7 @@ import com.ipartek.ejercicioproductos.Dal.ProductosDal;
 @WebServlet("/ListadoProductosServlet")
 public class ListadoProductosServlet extends HttpServlet {
 	static final String LISTADO_PRODUCTOS = "WEB-INF/vistas/ProductosCrud.jsp";
+	static final String RUTA_FORMULARIO = "WEB-INF/vistas/ProductosForm.jsp";
 	private static final long serialVersionUID = 1L;
 
 	public ListadoProductosServlet() {// constructor vacio.
@@ -41,10 +42,20 @@ public class ListadoProductosServlet extends HttpServlet {
 
 		String opcion = request.getParameter("opcion");// si en la url pones:(?opcion):
 		if (opcion == null) {
-			Productos1[] listaProductos = acciones.buscarId();// en el array va la listaProductos encontrado.
+			Productos1[] listaProductos = acciones.buscarTodos();// en el array va la listaProductos encontrado.
 			request.setAttribute("listaProductos", listaProductos);
 			request.getRequestDispatcher(LISTADO_PRODUCTOS).forward(request, response);// te manda a la pagina productoscrud.
 		}// if
+		else {
+			switch (opcion) {
+			case "modificar":
+
+				request.getRequestDispatcher(RUTA_FORMULARIO);
+				break;
+
+			}// switc
+
+		}// else
 
 	}// dopost
 }
