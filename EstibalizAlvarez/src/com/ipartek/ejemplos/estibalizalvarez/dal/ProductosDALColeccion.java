@@ -34,7 +34,7 @@ public class ProductosDALColeccion implements ProductosDal {// DalColeccion esta
 	@Override
 	public Productos1 buscarPorId(String id) {
 
-		return Productos1.get(id);
+		return productosColeccion.get(id);
 	}
 
 	@Override

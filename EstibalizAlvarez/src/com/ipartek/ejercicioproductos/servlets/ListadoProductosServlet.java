@@ -15,8 +15,8 @@ import com.ipartek.ejercicioproductos.Dal.ProductosDal;
 
 @WebServlet("/ListadoProductosServlet")
 public class ListadoProductosServlet extends HttpServlet {
-	static final String LISTADO_PRODUCTOS = "WEB-INF/vistas/ProductosCrud.jsp";
-	static final String RUTA_FORMULARIO = "WEB-INF/vistas/ProductosForm.jsp";
+	static final String LISTADO_PRODUCTOS = "/WEB-INF/vistas/ProductosCrud.jsp";
+	static final String RUTA_FORMULARIO = "/WEB-INF/vistas/ProductosForm.jsp";
 	private static final long serialVersionUID = 1L;
 
 	public ListadoProductosServlet() {// constructor vacio.
@@ -40,20 +40,29 @@ public class ListadoProductosServlet extends HttpServlet {
 			application.setAttribute("acciones", acciones);// tarjeta de visita. Que siempre sea el mismo bibliotecario.
 		}
 
-		String opcion = request.getParameter("opcion");// si en la url pones:(?opcion):
-		if (opcion == null) {
+		String op = request.getParameter("op");// si en la url pones:(?op):
+		if (op == null) {
 			Productos1[] listaProductos = acciones.buscarTodos();// en el array va la listaProductos encontrado.
 			request.setAttribute("listaProductos", listaProductos);
 			request.getRequestDispatcher(LISTADO_PRODUCTOS).forward(request, response);// te manda a la pagina productoscrud.
 		}// if
 		else {
-			switch (opcion) {
+
+			String id = request.getParameter("id");// que el request me de el parametro id.
+			Productos1 productoElegido;// que la clase Productos1 tiene la productoElegido.
+			switch (op) {
 			case "modificar":
-
-				request.getRequestDispatcher(RUTA_FORMULARIO);
+				productoElegido = acciones.buscarPorId(id);
+				request.setAttribute("productos1", productoElegido);// pasame los atributos de listaProductos al campo ListaProductos.
+				request.getRequestDispatcher(RUTA_FORMULARIO).forward(request, response);
+				;
 				break;
-
-			}// switc
+			case "baja":
+				productoElegido = acciones.buscarPorId(id);
+				acciones.baja(productoElegido);// de las acciones de ProductosDal te coge el baja y te borra de la lista de productos.
+				response.sendRedirect("ProductosCrud");
+				break;
+			}// switch
 
 		}// else
 
