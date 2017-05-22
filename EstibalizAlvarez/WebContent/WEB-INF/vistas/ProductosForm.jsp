@@ -21,10 +21,11 @@
 	
 	</fieldset>
 <%--Vamos a crear los botones: --%>
-<a href="ProductosFormServlet?op=alta">Alta</a>
-<a href="ProductosFormServlet?op=modificar">Modificar</a>
-<a href="ProductosFormServlet?op=borrar">Borrar</a>
-
+<fieldset>
+	<input type ="submit" value="${param.op}"/><!-- me coge el valor del dato "modificar, borrar,alta" de la lista de productos y lo pone en el boton actual.-->
+	<input type="hidden" name="op" value="${param.op}"/>
+	
+</fieldset>
 	
 	</form>
 	

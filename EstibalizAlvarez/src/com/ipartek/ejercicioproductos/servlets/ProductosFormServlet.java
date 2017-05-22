@@ -55,7 +55,7 @@ public class ProductosFormServlet extends HttpServlet {
 			break;
 		case "modificar":
 			dal.modificar(datos);
-			response.sendRedirect("productosCrud");// una vez que te modificar te envie a la pagina de productosCrud.
+			response.sendRedirect(ListadoProductosServlet.LISTADO_PRODUCTOS);// una vez que te modificar te envie a la pagina de productosCrud.
 			break;
 		case "borrar":
 			dal.baja(datos);

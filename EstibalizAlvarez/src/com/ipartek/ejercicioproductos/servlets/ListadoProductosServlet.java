@@ -60,7 +60,7 @@ public class ListadoProductosServlet extends HttpServlet {
 			case "baja":
 				productoElegido = acciones.buscarPorId(id);
 				acciones.baja(productoElegido);// de las acciones de ProductosDal te coge el baja y te borra de la lista de productos.
-				response.sendRedirect("ProductosCrud");
+				response.sendRedirect("productosCrud");
 				break;
 			}// switch
 
